@@ -1,0 +1,15 @@
+
+{
+  "name": "IntroToRedux",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "JoyceTerra <joyterra@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^23.5.0",
+    "redux": "^4.0.0"
+  },
+  "scripts": {
+  "test": "jest"
+  }
+}
