@@ -1,41 +1,35 @@
 const redux = require('redux')
 
-const reducer = (state = 1, action = {}) => {
-    switch(action.type) {
-        case 'ADD_ONE' :
-            return state + 1
-        case 'ADD_TWO' :
-            return state + 2
-            case  'ADD_THREE':
-            return state + 3
+const  initialState = {
+    firstName: 'Charles',
+    lastName: 'Eamnes',
+    age: 75
+}
+
+
+const reducer = ( state = initialState, action = {} ) => {
+    switch (action.type) {
+        case 'SET_FIRST_NAME' :
+        return {
+            ...state,
+            firstName: action.payload
+        }
         default:
-            return state
+        return state
     }
 }
 
-const store = redux.createStore(reducer)
-console.log('Initial state of the store', store.getState())
+const store = redux.createStore( reducer )
+console.log('Initial state of the store: ', store.getState())
 
 store.subscribe(() => console.log('Next state: ', store.getState()))
 
 const action = {
-    type: 'ADD_ONE'
+    type: 'SET_FIRST_NAME',
+    payload: 'ALICE'
 }
 
-store.dispatch(action) //are we 'exporting' action here?
-
-const actionTwo = {
-    type: 'ADD_TWO'
-}
-
-store.dispatch(actionTwo)
-
-const actionThree = {
-    type: 'ADD_THREE'
-}
-
-store.dispatch(actionThree)
-
+store.dispatch(action)
 
 
 module.exports ={ reducer }
